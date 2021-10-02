@@ -1,8 +1,14 @@
 import React from "react"
 import {ITodo} from "../intefaces"
 
+interface ITodoItem {
+    todoList: ITodo[]
+    label: string
+    id: number
+}
+
 type TodoListProps = {
-    todos: ITodo[]
+    todos: ITodoItem
     onToggle(id: number): void
     onRemove: (id: number) => void
 }
@@ -10,7 +16,7 @@ type TodoListProps = {
 export const TodoList: React.FC<TodoListProps> = ({todos, onRemove, onToggle}) => {
 
 
-    if (todos.length === 0) {
+    if (todos.todoList.length === 0) {
         return (<p className="center">Пока дел нет</p>)
     }
 
@@ -21,7 +27,7 @@ export const TodoList: React.FC<TodoListProps> = ({todos, onRemove, onToggle}) =
 
     return (
         <ul>
-            {todos.map(todo => {
+            {todos.todoList.map(todo => {
                 const classes = ["todo"]
                 if (todo.completed) {
                     classes.push("completed")

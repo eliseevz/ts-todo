@@ -3,3 +3,9 @@ export interface ITodo {
     id: number
     completed: boolean
 }
+
+export interface ITodoItem {
+    todoList: ITodo[]
+    label: string
+    id: number
+}
