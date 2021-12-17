@@ -26,7 +26,7 @@ const List: React.FC<IListProps> = ({todoItems, onNewTodo, todos, onChange, onDe
     }
 
     return (
-        <div style={{width: 250, marginRight: 30, alignSelf: "end"}} className="collection">
+        <div style={{width: 250, marginRight: 30, alignSelf: "baseline"}} className="collection">
             {
                 todoItems.map((item, index) =>
                     <div className="listWrap">
@@ -47,10 +47,6 @@ const List: React.FC<IListProps> = ({todoItems, onNewTodo, todos, onChange, onDe
                 onNewTodo()
             })}
                className="collection-item">+</a>
-            {/*<a href="/" className="collection-item">Alvin</a>*/}
-            {/*<a href="/" className="collection-item active">Alvin</a>*/}
-            {/*<a href="/" className="collection-item">Alvin</a>*/}
-            {/*<a href="/" className="collection-item">Alvin</a>*/}
         </div>
     )
 }

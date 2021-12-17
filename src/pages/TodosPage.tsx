@@ -48,6 +48,10 @@ export const TodosPage: React.FC = () => {
             id: Date.now(),
             completed: false
         }
+        if (title.length === 0 ) {
+            alert("Строчка не должна быть пустой")
+            return
+        }
         setTodos((prev) => {
             setTodoItem(prevState => {
                 const newTodoItems = prevState.map(item => {
@@ -64,7 +68,6 @@ export const TodosPage: React.FC = () => {
     }
 
     const onToggleHandler = (id: number) => {
-        console.log("хуй")
         setTodos(prev => {
             const newTodo = prev.todoList.map(todo => {
                 if (todo.id === id) {
@@ -78,7 +81,6 @@ export const TodosPage: React.FC = () => {
             setTodoItem(prevState => {
                 const newTodoItems = prevState.map(item => {
                     if (todos.id === item.id) {
-                        console.log("ЗАШЛО")
                         return {...prev, todoList: [...newTodo]}
                     }
                     return {...item}
@@ -119,7 +121,6 @@ export const TodosPage: React.FC = () => {
     }
 
     const onChangeTodo = (id: number) => {
-        console.log("хуйхуйхуй")
         todoItems.forEach(item => {
             if (item.id === id) {
                 console.log("setted")
